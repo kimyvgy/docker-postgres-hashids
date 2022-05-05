@@ -1,4 +1,6 @@
-FROM postgres:10-alpine
+ARG TAG
+
+FROM postgres:${TAG}
 
 RUN wget -qO- https://github.com/iCyberon/pg_hashids/archive/master.tar.gz | tar xzf - -C /tmp && \
     apk add --no-cache --virtual .build-deps make gcc libc-dev postgresql-dev && \
